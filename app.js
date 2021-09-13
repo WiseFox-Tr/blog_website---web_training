@@ -29,6 +29,12 @@ app.get("/compose", function(req, res){
   res.render("compose")
 })
 
+app.post("/compose", function(req, res){
+  console.log("post request on url '/compose'")
+  const newPostTitle = req.body.newPostTitle
+  console.log(`new post title = ${newPostTitle}`)
+})
+
 app.listen(port, function() {
   console.log(`Server started on port ${port}`)
 })
