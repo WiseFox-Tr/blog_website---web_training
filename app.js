@@ -31,8 +31,11 @@ app.get("/compose", function(req, res){
 
 app.post("/compose", function(req, res){
   console.log("post request on url '/compose'")
-  const newPostTitle = req.body.newPostTitle
-  console.log(`new post title = ${newPostTitle}`)
+  const post = {
+    postTitle: req.body.postTitle,
+    postBody: req.body.postBody
+  }
+  console.log("post title = " + post.postTitle + "\npost body = " + post.postBody)
 })
 
 app.listen(port, function() {
