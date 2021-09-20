@@ -43,6 +43,21 @@ app.post("/compose", function(req, res){
   res.redirect("/")
 })
 
+app.get("/posts/:postName", function(req, res) {
+  const postName = req.params.postName
+  console.log("post name = " + postName)
+
+  const specificPost = postController.getSpecificPostByName(postName)
+  if(specificPost != null) {
+    res.render("post", {
+      postName: specificPost.postTitle,
+      postContent: specificPost.postBody
+    })
+  } else {
+    res.redirect("/")
+  }
+})
+
 app.listen(port, function() {
   console.log(`Server started on port ${port}`)
 })
