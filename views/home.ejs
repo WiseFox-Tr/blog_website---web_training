@@ -5,8 +5,18 @@
   <p><%=homeStartingContent%> </p>
 
   <% postsList.forEach(post => { %>
-    <h2><%=post.postTitle%></h2>
-    <p><%=post.postBody%></p>   
+
+    <% if(post.postBody.length > 100) { %>
+        <h2><%=post.postTitle%></h2>
+        <p class="long-post">
+          <%=post.postBody.substring(0, 150) + " ..."%>
+          <a href="/posts/:<%=post.postTitle%>">Read more</a>
+        </p> 
+        
+      <% } else { %>
+        <h2><%=post.postTitle%></h2>
+        <p><%=post.postBody%></p> 
+      <% } %>
   <%}); %>
 
 <%- include("partials/footer") -%>
