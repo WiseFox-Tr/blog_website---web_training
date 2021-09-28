@@ -1,8 +1,8 @@
 const mongoose = require("mongoose")
 const dbPort = "27017"
 const dbName = "blogPostDB"
-
-mongoose.connect(`mongodb://localhost:${dbPort}/${dbName}`)
+const dbURL = `mongodb://localhost:${dbPort}/${dbName}`
+mongoose.connect(dbURL)
 
 const postSchema = mongoose.Schema({
     title: {
@@ -16,3 +16,7 @@ const postSchema = mongoose.Schema({
 })
 
 const PostModel = mongoose.model("Post", postSchema)
+
+exports.getAllPosts = function() {
+    return PostModel.find().exec()
+}
