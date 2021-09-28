@@ -9,7 +9,7 @@
     <% if(post.body.length > 100) { %>
         <h2><%=post.title%></h2>
         <p class="justify-text">
-          <%=post.postBody.substring(0, 150) + " ..."%>
+          <%=post.body.substring(0, 150) + " ..."%>
           <a href="/posts/:<%=post.title%>">Read more</a>
         </p> 
         
