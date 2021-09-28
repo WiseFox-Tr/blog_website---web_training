@@ -20,3 +20,10 @@ const PostModel = mongoose.model("Post", postSchema)
 exports.getAllPosts = function() {
     return PostModel.find().exec()
 }
+
+exports.saveAPost = function(title, body) {
+    PostModel({
+        title: title,
+        body: body
+    }).save()
+}
