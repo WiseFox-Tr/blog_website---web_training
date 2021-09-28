@@ -1,8 +1,8 @@
 
 const express = require("express")
 const ejs = require("ejs")
-const postController = require(__dirname + "/postController.js")
-const contentController = require(__dirname + "/contentController.js")
+const postController = require(__dirname + "/controllers/postController.js")
+const contentController = require(__dirname + "/controllers/contentController.js")
 const port = 3000
 
 const app = express()
