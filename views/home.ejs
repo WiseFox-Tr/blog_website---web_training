@@ -6,16 +6,16 @@
 
   <% postsList.forEach(post => { %>
 
-    <% if(post.postBody.length > 100) { %>
-        <h2><%=post.postTitle%></h2>
+    <% if(post.body.length > 100) { %>
+        <h2><%=post.title%></h2>
         <p class="justify-text">
           <%=post.postBody.substring(0, 150) + " ..."%>
-          <a href="/posts/:<%=post.postTitle%>">Read more</a>
+          <a href="/posts/:<%=post.title%>">Read more</a>
         </p> 
         
       <% } else { %>
-        <h2><%=post.postTitle%></h2>
-        <p class="justify-text"><%=post.postBody%></p> 
+        <h2><%=post.title%></h2>
+        <p class="justify-text"><%=post.body%></p> 
       <% } %>
   <%}); %>
 
