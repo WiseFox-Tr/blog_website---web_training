@@ -32,19 +32,9 @@ app.post("/compose", function(req, res){
   postController.addNewPost(req.body.title, req.body.body, res)
 })
 
-app.get("/posts/:postName", function(req, res) {
-  const postName = req.params.postName
-  console.log("post name = " + postName)
-
-  const specificPost = postController.getSpecificPostByName(postName)
-  if(specificPost != null) {
-    res.render("post", {
-      postName: specificPost.postTitle,
-      postContent: specificPost.postBody
-    })
-  } else {
-    res.redirect("/")
-  }
+app.get("/posts/:title", function(req, res) {
+  console.log(`post request on url '/posts/${req.params.title}'`)
+  postController.getPostByTitle(req.params.title, res)
 })
 
 app.listen(port, function() {
