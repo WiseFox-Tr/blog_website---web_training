@@ -29,12 +29,7 @@ app.get("/compose", function(req, res){
 
 app.post("/compose", function(req, res){
   console.log("post request on url '/compose'")
-  const post = {
-    postTitle: req.body.postTitle,
-    postBody: req.body.postBody
-  }
-  postController.updatePostsList(post)
-  res.redirect("/")
+  postController.addNewPost(req.body.title, req.body.body, res)
 })
 
 app.get("/posts/:postName", function(req, res) {
