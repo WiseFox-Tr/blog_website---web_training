@@ -27,3 +27,7 @@ exports.saveAPost = function(title, body) {
         body: body
     }).save()
 }
+
+exports.getAPostByTitle = function(title) {
+    return PostModel.findOne({title: title}).exec()
+}
